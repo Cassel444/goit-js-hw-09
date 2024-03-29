@@ -16,8 +16,8 @@ function getFormInformation() {
 
 function updateFormInformation() {
     const savedFormInfo = JSON.parse(localStorage.getItem(localStorageKey)) || {};
+    inputEmail.value = savedFormInfo.email ?? "";
     if (savedFormInfo) {
-        inputEmail.value = savedFormInfo.email ?? "";
         textarea.value = savedFormInfo.message ?? "";
     }
 };
@@ -34,4 +34,27 @@ function sentInformation(evt) {
     form.reset();
 };
 
+// const form = document.querySelector(".feedback-form");
+// const localStorageKey = "feedback-form-state";
 
+// form.addEventListener("input", getFormInformation);
+// form.addEventListener("submit", sentInformation);
+
+// let savedFormInfo = JSON.parse(localStorage.getItem(localStorageKey)) || {};
+// const { email, message } = form.elements;
+
+// email.value = savedFormInfo.email ?? "";
+// message.value = savedFormInfo.message ?? "";
+
+// function getFormInformation(evt) {
+//     savedFormInfo[evt.target.name] = evt.target.value.trim();
+//     localStorage.setItem(localStorageKey, JSON.stringify(savedFormInfo));
+// };
+
+// function sentInformation(evt) {
+//     evt.preventDefault();
+//     console.log(savedFormInfo);
+//     savedFormInfo = {};
+//     form.reset();
+//     localStorage.removeItem(localStorageKey);
+// };
